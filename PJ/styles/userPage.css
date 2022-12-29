@@ -1,0 +1,1637 @@
+:root{
+    --cor-background:      #F7F5F9;
+    --cor-logo:            #2667ff;
+    --cor-padrao:          #2667ff;
+    --cor-clara:           #3f8efc;
+    --botao-hover:         #2d4dce;
+    --texto-padrao:        #03256c;
+    --texto-claro:         #FFFFFF; 
+    --texto-escuro:        #252826;
+    --box-shadow:          hsla(152, 4%, 15%, 0.1);  
+}
+
+/* ESTILIZAÇÕES DOD BOTÃO DE DARK MODE */
+
+body.dark-theme{
+    --cor-background:      #000b2e;
+    --cor-logo:            #FFFFFF;
+    --cor-padrao:          #000d38;
+    --cor-clara:           #000e3e;
+    --botao-hover:         #000f44;
+    --texto-padrao:        #FFFFFF;
+    --texto-claro:         #FFFFFF; 
+    --texto-escuro:        #FFFFFF;
+    --box-shadow:          #FFFFFF;  
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    margin: 0 0 3rem 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: .938rem;
+    background-color: var(--cor-background);
+    transition: 0.3s; /*Para animações de dark/light mode*/
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+h1, h2, h3, h4 {
+    color: var(--texto-padrao);
+    font-weight: 600;
+  }
+
+p{
+    color: var(--texto-padrao);
+}
+
+  ul{
+    list-style: none;
+  }
+
+  a{
+    text-decoration: none;
+  }
+
+  button{
+    border: none;
+    outline: none;
+  }
+
+/* REUTILIZAÇÕES CSS */
+
+.section{
+    padding: 5.5rem 0 1rem;
+}
+
+.section-title,
+.section-title-center{
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    line-height: 140%;
+}
+
+.section-title-center{
+    text-align: center;
+}
+
+.container{
+    max-width: 968px;
+    /*Removi padding left e right pq tava "vazando" da tela*/
+}
+
+.grid{
+    display: grid;
+}
+
+.main{
+    overflow: hidden; /*Para animações*/
+}
+
+.button{
+    display: inline-block;
+    background-color: var(--cor-padrao);
+    color: #fff;
+    padding: 1rem 1.75rem;
+    border-radius: .5rem;
+    font-weight: 500;
+    transition: .3s;
+}
+
+.button:hover{
+    color: #fff;
+    background-color: var(--botao-hover);
+}
+
+/* Para animações nos ícones dos botões */
+.button-icon{
+    transition: .3s;
+}
+
+.button:hover .button-icon{
+    transform: translateX(.25rem);
+}
+
+.button--flex{
+    display: inline-flex;
+    align-items: center;
+    column-gap: .5rem;
+}
+
+/*ESTILIZAÇÕES DO MENU*/
+
+#header{
+    height: 8vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--cor-background);
+    padding-left: 20px;
+    padding-right: 20px;
+    z-index: 100;
+    position: fixed;
+    transition: .4s; /*Para fazer a animação pro dark mode*/
+}
+
+header img{
+    height: 50px;
+    width: 50px;
+}
+
+nav a span{
+    font-weight: 700;
+    color: var(--cor-logo);
+}
+
+nav a span::after{
+    content: 'PARK';
+    color: var(--cor-logo);
+}
+
+nav{
+    display: flex;
+    align-items: center;
+    z-index: 2;
+}
+
+nav ul{
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    display: none;
+}
+
+nav ul li{
+    margin: 0 35px 0 35px;
+}
+
+/*ESTILIZAÇÕES DOS LINKS DA NAV*/
+.menu-link{
+    position: relative;
+    padding-bottom: 8px;
+    font-size: 16px;
+    color: var(--texto-padrao);
+    text-decoration: none;
+}
+
+.menu-link:hover{
+    color: var(--texto-padrao);
+}
+
+.menu-link::after{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    content: "";
+    width: 0%;
+    height: 3px;
+    background-color: var(--texto-padrao);
+    border-radius: 5px;
+    transition: width 0.2s ease-out;
+    margin-left: 0;
+}   
+
+.menu-link:hover.menu-link::after{
+    width: 100%;
+}
+
+.menu-buttons-area{
+    display: flex;
+    align-items: center;
+}
+
+.change-theme{
+    padding: 1rem;
+    color:var(--texto-padrao);
+    font-size: 1.15rem;
+    cursor: pointer;
+}
+
+/* ESILIZAÇÕES DO BOTÃO HAMBURGER */
+.hamburger{
+    display: block;
+    position: relative;
+    user-select: none; /* "User select: none" impede que o usuário selecione(passar o mouse por cima com click) o elemento*/
+    appearance: none;
+    border: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.hamburger span{
+    display: block;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+    background-color: var(--texto-padrao);
+    border-radius: 6px;
+    transform-origin: 0 0;
+    transition: 0.4s;
+}
+
+.hamburger.is-active span:nth-child(1){
+    transform: translate(0px, -2px) rotate(45deg);
+}
+
+.hamburger.is-active span:nth-child(2){
+    opacity: 0;
+    transform: translateX(15px);
+}
+
+.hamburger.is-active span:nth-child(3){
+    transform: translate(-3px, 3px) rotate(-45deg);
+}
+
+.hamburger.is-active:hover span{
+    background-color: var(--texto-padrao);
+}
+
+/* DISPLAY NONE POR PADRÃO CASO A TELA SEJA GRANDE */
+.profile{
+    padding: .4rem 1rem;
+    border-radius: 1rem;
+    background-color: var(--cor-logo);
+    color: var(--cor-background);
+    display: none;
+}
+
+.profile img{
+    height: 20px;
+    width: 20px;
+    border-radius: .25rem;
+}
+
+.profile span{
+    color: var(--texto-padrao);
+}
+
+.mobile-nav{
+    position: fixed;
+    top: 0;
+    left: 100%;
+    width: 100%;
+    min-height: 100vh;
+    display: block;
+    z-index: 2;
+    background-color: var(--cor-background);
+    padding-top: 120px;
+    transition: 0.4s;
+}
+
+.mobile-nav.is-active{
+    left: 0;
+}
+
+.mobile-nav ul, .mobile-nav a{
+    display: block;
+    text-align: center;
+    color: var(--texto-padrao);
+}
+
+.ul-mobile{
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+}
+
+.ul-mobile li{
+    margin: 10vh 0 10vh 0;
+}
+
+.profile-mobile a{
+    margin: 5vh 0 5vh 0;
+}
+
+.scroll-header{
+    box-shadow: 0 1px 4px var(--box-shadow);
+}
+
+/* ESTILIZAÇÕES DA SECTION DE LOCALIZAÇÕES */
+
+.locations-container iframe{
+    border-radius: .25rem;
+}
+
+/* Estilizações do menu de pesquisa de locais */
+.choose-bx{
+    position: absolute;
+    height: auto;
+    top: 60%;
+    left: 13%;
+}
+
+/* Estilizações da parte de cima do menu de pesquisa (parte dos botões) */
+.stay-bx{
+    display: flex;
+    align-items: center;
+}
+
+.stay-bx button{
+    padding: 1rem 2rem;
+    background-color: var(--cor-padrao);
+    color: #FFFF;
+    border: none;
+    outline: none;
+    transition: .3s;
+}
+
+.stay-bx button:hover{
+    background-color: #FFFF;
+    color: var(--cor-logo);
+} 
+
+/* Arredondamento do primeiro botão do menu de busca*/
+.stay-bx button:nth-child(1){
+    border-radius: 1rem 0 0 0;
+}
+
+/* Arredondamento do último botão do menu de busca*/
+.stay-bx button:nth-child(3){
+    border-radius: 0 1rem 0 0;
+}
+
+.select{
+    height: 8rem;
+    background-color: var(--cor-background);
+    border-radius: 0 1rem 1rem 1rem;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.local-card, .vehicle-card, .time-card{
+    width: 26%;
+    color: var(--texto-padrao);
+    background-color: var(--cor-background);
+    border-radius: .25rem;
+    padding: 1rem .5rem;
+}
+
+.check-out-time{
+    padding-left: 1rem;
+}
+
+.local-card input, .vehicle-card select, .time-card input{
+    padding: 0.5rem;
+    border: 1px solid var(--cor-logo);
+    color: #03256c;
+    outline: none;
+    border-radius: .25rem;
+}
+
+.time-card{
+    display: flex;
+    justify-content: space-between;
+}
+
+.time label{
+    display: block;
+}
+
+.home-scroll{
+    padding-top: .5rem;
+    text-align: center;
+}
+
+.scroll-button{
+    color: var(--cor-logo);
+    transition: .4s;
+}
+
+.scroll-button:hover{
+    transform: translateY(.25rem);
+}
+
+/* ESTILIZAÇÕES DA SECTION DE RESERVAS */
+
+.reservation-modal{
+    height: 14rem;
+    background-color: #FFFF;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+}
+
+.reservation-modal-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.reservation-parking-lot-name{
+    color: #03256c;
+}
+
+.reservation-time-left{
+    color: #03256c;
+    font-size: .75rem;
+    padding-bottom: 0.5rem;
+}
+
+.reservation-info{
+    display: flex;
+    justify-content: space-around;
+}
+
+.reservation-qrcode{
+    width: 150px;
+}
+
+.check-in-reservation, .check-out-reservation, .parking-space-reservation{
+    color: #03256c;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.check-in-time-reservation, .check-out-time-reservation, .parking-space-value-reservation{
+    color: #03256c;
+}
+
+.reservation-payment-text{
+    color:#03256c;
+    font-weight: 500;
+}
+
+.reservation-payment-method{
+    color: #03256c;
+}
+
+.reservation-buttons-area{
+    display: flex;
+}
+
+.message-icon, .call-icon, .report-icon{
+    font-size: 1.5rem;
+    padding: 0 .5rem;
+}
+
+.message-icon:hover, .call-icon:hover{
+    color: #03256c;
+}
+
+.report-icon:hover{
+    color: red;
+}
+
+/* ESTILIZAÇÕES DO MODAL DE VER MAIS SOBRE O ESTACIONAMENTO*/
+
+
+.modal-container{
+    background-color: rgba(0, 0, 0, 0.2);
+
+    /* ".modal-container" é a container que vai cobrir tudo que está "abaixa/atrás" do modal, por isso está com 100% de width e 100 de vh(viewport height)*/
+    width: 100%;
+    height: 100vh;
+
+    /* position fixed para se manter na tela mesmo ao scrollar a página*/
+    position: fixed;
+
+    /* "left: 0" e "top: 0" ocupando a tela inteira sem "sobras" de espaço entre os eixos */
+    left: 0;
+    top: 0;
+
+    display: grid;
+    place-items: center;
+    
+    opacity: 0;
+    pointer-events: none;
+
+    transition: opacity 0.3s;
+}
+
+.modal-container-show{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.parking-lot-details-modal-closed{
+    display: none;
+}
+
+.parking-lot-details-modal{
+    background-color: #FFFF;
+    border-radius: 1rem;
+    padding: 1rem 1.75rem;
+    transition: .3s;
+}
+
+.parking-lot-details-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.parking-lot-details-name{
+   color: #03256c;
+   margin: 0;
+}
+
+.parking-lot-details-rate-icon{
+    font-size: 1.5rem;
+    color: yellow;
+}
+
+.close-icon{
+    padding-right: .5rem;
+    font-size: 1.5rem;
+}
+
+.parking-lot-details-close-button{
+    display: flex;
+    align-items: center;
+    color: #03256c
+}
+
+.parking-lot-gallery{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 3rem 0;
+}
+
+.parking-lot-details-img{
+    width: 300px;
+}
+
+.modal-charge-station-text{
+    padding-right: .5rem;
+}
+
+.parking-lot-details-about{
+    padding: 1rem 0;
+    color: #03256c;
+}
+
+.parking-lot-details-price{
+    color: #03256c;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.modal-terms-and-conditions{
+    color: #03256c;
+}
+
+/* estilizações do modal de informações sobre a reserva */
+.reservation-info-modal-closed{
+    display: none;
+}
+
+.reservation-info-modal{
+    background-color: #FFFF;
+    border-radius: 1rem;
+    padding: 1rem 1.75rem;
+}
+
+.reservation-info-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.reservation-info-title{
+    color: #03256c;
+}
+
+.reservation-info-text{
+    padding-top: 1rem;
+    color: #03256c;
+}
+
+.reservation-info-area{
+    display: flex;
+    margin-bottom: 2rem;
+}
+
+.reservation-time-area{
+    display: flex;
+}
+
+.reservation-check-in-area, .reservation-check-out-area{
+    margin: 0 2rem;
+}
+
+
+.reservation-check-in-text, .reservation-check-out-text{
+    font-weight: 500;
+    color: #03256c;
+    margin-bottom: 16px;
+    display: block;
+}
+
+.reservation-check-in-time, .reservation-check-out-time{
+    padding: 0.5rem;
+    border: 1px solid #03256c;
+    color: #03256c;
+    outline: none;
+    border-radius: .25rem;
+}
+
+.parking-lot-vacancy-area{
+    display: flex;
+}
+
+.parking-lot-floor-area{
+    margin: 0 2rem;
+}
+
+.parking-lot-floor-text{
+    color: #03256c;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 16px;
+}
+
+.reservations-floor-options{
+    border-radius: .25rem;
+    padding: .5rem 1rem;
+}
+
+.parking-lot-vacancy-text{
+    display: block;
+    color: #03256c;
+    font-weight: 500;
+    margin-bottom: 16px;
+}
+
+/* ESTILIZAÇÕES DO MODAL DE FORMA DE PAGAMENTO */
+
+.payment-modal-closed{
+    display: none;
+}
+
+.payment-modal{
+    background-color: #FFFF;
+    border-radius: 1rem;
+    padding: 1rem 1.75rem;
+}
+
+.payment-modal-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.payment-modal-title{
+    color: #03256c;
+}
+
+.payment-modal-about{
+    padding-top: 1rem;
+    color: #03256c;
+}
+
+.payment-method-area{
+    display: flex;
+    align-items: center;
+}
+
+.card-icon, .paypal-icon{
+    padding-right: .5rem;
+    font-size: 1.5rem;
+}
+
+.card-payment-button, .pix-payment-button{
+    color: #03256c;
+    text-decoration: underline;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    padding: .2rem;
+    transition: .3s;
+    border: 1px solid var(--texto-padrao);
+    border-radius: .5rem;
+}
+
+.pix-payment-button{
+    margin-left: 2rem;
+}
+
+.card-payment-button-active, .pix-payment-button-active{
+    background-color: var(--cor-padrao);
+    display: flex;
+    align-items: center;
+    padding: .2rem;
+    color: #FFFF;
+    cursor: default;
+    transition: .3s;
+    border-radius: .5rem;
+}
+
+.pix-payment-button-active{
+    text-decoration: none;
+    padding: .5rem;
+}
+
+.card-payment-button-active:hover, .pix-payment-button-active:hover{
+    color: #FFFF;
+}
+
+/* estilizações da parte pagamento com cartão*/
+
+.card-method-area{
+    transition: .3s;
+}
+
+
+.saved-cards-text{
+    color: #03256c;
+    font-weight: 500;
+    padding-top: 1rem;
+}
+
+.saved-card{
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-bottom: 1px solid var(--cor-padrao);
+    padding-top: 1rem;
+}
+
+.card-flag{
+    width: 60px;
+}
+
+.show-card-button{
+    font-size: 1.5rem;
+}
+
+.show-card-button:hover{    
+    transform: translateY(.25rem);
+}
+
+/* estilizações da parte pagamento com pix*/
+
+.pix-area-closed{
+    transition: .3s;
+    display:none;
+}
+
+.pix-text{
+    color: #03256c;
+    font-weight: 500;
+    padding-top: 1rem;
+}
+
+.pix-info{
+    display: flex;
+}
+
+.pix-qr-code-text{
+    color: #03256c;
+    font-weight: 500;
+}
+
+.pix-qr-code-img{
+    width: 250px;
+}
+
+.pix-account-text{
+    color: #03256c;
+    font-weight: 500;
+    margin-bottom: .5rem;
+}
+
+.pix-account-name{
+    color: #03256c;
+}
+
+.copy-pix-key-button{
+    display: inline-flex;
+    align-items: center;
+    padding-left: .5rem;
+}
+
+.copy-icon{
+    font-size: 1.5rem;
+}
+
+.pix-account-info-area{
+    padding-left: 5rem;
+}
+
+.confirm-payment-area{
+    padding-top: 1rem; 
+}
+
+/* estilizações da parte de revisão de reserva */
+
+.reservation-review-modal-closed{
+    display: none;
+}
+
+.reservation-review-modal{
+    background-color: #FFFF;
+    border-radius: 1rem;
+    padding: 1rem 1.75rem;
+}
+
+.review-modal-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.review-modal-title{
+    color: #03256c;
+}
+
+.review-modal-text{
+    padding-top: 1rem;
+    color: #03256c;
+}
+
+.review-payment-method-area{
+    padding: 0.5rem; 
+    border-radius: .25rem;
+}
+
+.review-payment-method-header{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.review-payment-method-title{
+    color: #03256c;
+    font-weight: 500;
+}
+
+.review-payment-info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--cor-clara);
+    padding: 0.5rem 0;
+}
+
+.review-reservation-info-area{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.review-time-info{
+    display: flex;
+}
+
+.review-check-in-area, .review-check-out-area, .review-floor-area, .review-vacancy-area{
+    margin: 1rem .5rem
+}
+
+.review-check-in-text, .review-check-out-text, .review-floor-text, .review-vacancy-text, .review-price-text{
+    color: #03256c;
+    font-weight: 500;
+    margin-bottom: .5rem;
+}
+
+
+/* ESTILIZAÇÕES DA SECTION DE ESTACIONAMENTOS POR PERTO */
+.parking-lots-area{
+    background-color: var(--cor-clara);
+    padding: 3rem 2rem 2rem;
+    gap: 2rem;
+}
+
+.parking-lots-area-title{
+    color: #FFFF;
+}
+
+.parking-lot-modal{
+    height: 14rem;
+    background-color: #FFFF;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: space-around;
+}
+
+.parking-lot-img{
+    width: 250px;
+    background-color: #2667ff;
+    border-radius: 1rem;
+}
+
+.parking-lot-location{
+    color: #03256c;
+    font-size: .813rem;
+    margin: 0;
+}
+
+.parking-lot-name{
+    color: #03256c;
+    margin: 0;
+}
+
+.rate-icon{
+    color: yellow;
+}
+
+.charge-station-icon{
+    color: rgb(170, 250, 50);
+    font-size: 1.25rem;
+}
+
+.charge-station-text{
+    color: #03256c;
+}
+
+.security-icon{
+    color: #2667ff;
+    font-size: 1.25rem;
+}
+
+.security-text{
+    color: #03256c;
+}
+
+.truck-icon{
+    color: #2667ff;
+    font-size: 1.25rem;
+}
+
+.truck-area-text{
+    color: #03256c;
+    
+}
+
+.parking-lots-buttons-area{
+    justify-content: space-around;
+
+}
+
+.fav-icon{
+    font-size: 1.5rem;
+    color: var(--cor-padrao);
+    cursor: pointer;
+}
+
+.fav-icon:hover{
+    color: rgb(255, 81, 101);
+}
+
+.loc-icon{
+    font-size: 1.5rem;
+    color: var(--cor-padrao);
+    cursor: pointer;
+}
+
+.loc-icon:hover{
+    color: #03256c;
+}
+
+/* ESTILIZAÇÕES DA SECTION DE HISTÓRICO */
+
+.parking-lot-history-modal{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--box-shadow);
+}
+
+.history-local-img{
+    width: 100px;
+}
+
+.history-date span, .history-check-in span, .history-check-out span, .history-payment span, .history-value span{
+    color: var(--texto-padrao);
+    font-weight: 500;
+}
+
+.verify-history-button{
+    display: flex;
+    align-items: center;
+}
+
+.value-details-icon{
+    font-size: 1.5rem;
+    transition: .3s;
+}
+
+.value-details-icon:hover{
+    transform: translateX(.25rem);
+}
+
+/* ESTILIZAÇÕES DA SEÇÃO DO RODAPÉ */
+
+.footer-container{
+    row-gap: 3rem;
+}
+
+.footer-logo{
+    display: inline-flex;
+    align-items: center;
+    column-gap: .5rem;
+    color: hsl(152, 4%, 15%);
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: -1px;
+    margin-bottom: 2.5rem;
+    transition: .3s
+}
+
+.footer-logo{
+    color: var(--texto-padrao);
+}
+
+.footer-logo img{
+    height: 50px;
+    width: 50px;
+}
+
+.footer-logo:hover{
+    transform: translateX(15px);
+    transition: 0.4s;
+}
+
+.footer-title{
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.footer-subscribe{
+    background: var(--cor-clara);
+    padding: .75rem;
+    display: flex;
+    justify-content: space-between;
+    border-radius: .5rem;
+}
+
+::placeholder{
+    color: #fff;
+}
+
+.footer-input{
+    width: 70%;
+    padding: 0 .5rem;
+    background: none;
+    color: #fff;
+    border: none;
+    outline: none;
+}
+
+.footer-button{
+    padding: 1rem;
+}
+
+.footer-data{
+    display: grid;
+    row-gap: .75rem;
+}
+
+.footer-information{
+    font-size: .813rem;
+    color: var(--texto-padrao)
+}
+
+.footer-social{
+    display: inline-flex;
+    column-gap: .75rem;
+}
+
+.footer-social-link{
+    font-size: 1rem;
+    color: var(--texto-padrao);
+    transition: .3s;
+}
+
+.footer-social-link:hover{
+    transform: translateY(-.25rem);
+}
+
+.footer-cards{
+    display: inline-flex;
+    align-items: center;
+    column-gap: .5rem;
+}
+
+.footer-card{  /*ARRUMAR UM TAMANHO "UNIFORME" PARA AS FOTOS DE MEIOS DE PAGAMENTO !!! */
+    width: 35px;
+}
+
+.footer-copy{
+    text-align: center;
+    font-size: .75rem;
+    color:var(--texto-padrao);
+    margin: 5rem 0 1rem;
+}
+
+/* ESTILIZAÇÕES DO BOTÃO DE SCROLLAR PRA CIMA */
+
+.scrollup{
+    position: fixed;
+    background-color: var(--cor-padrao);
+    right: 1rem;
+    bottom: -30%; /* "-30%" pq ao scrollar, o valor vai ser alterado para 3rem por causa da função scrollUp*/
+    display: inline-flex;
+    padding: .5rem;
+    border-radius: .25rem;
+    z-index: 1;  /*Averiguar o nível do z-index dnv*/
+    opacity: .8s;
+    transition: .4s;
+}
+
+.scrollup-icon{
+    font-size: 1rem;
+    color: #fff;
+}
+
+.scrollup:hover{
+    background-color: var(--cor-padrao);
+    opacity: 1;
+}
+
+.show-scroll{
+    bottom: 3rem;
+}
+
+/* ESILIZAÇÕES DA BARRA DE SCROLL */
+
+::-webkit-scrollbar{
+    width: .6rem;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: var(--cor-padrao);
+    border-radius: .5rem;
+}
+
+/* BREAKPOINTS (PONTOS DE QUEBRA DA PÁGINA) */
+
+/* Para dispositivos pequenos */
+@media screen and (min-width: 320px){
+    .container{
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    .home-img{
+        width: 180px;
+    }
+
+    .home-title{
+        font-size: 1.5rem;
+    }
+
+    .choose-bx{
+        position: absolute;
+        top: 9%;
+        left: 2%;
+    }
+    
+    .select{
+        height: 24rem;
+        width: 14.82rem;
+        border-radius: 0 0 1rem 1rem;
+        display: grid;
+        grid-template-columns: 1fr;
+        padding: 0 2rem;
+    }
+
+    .search-button{
+        display: flex;
+        justify-content: center;
+    }
+
+    .reservation-modal{
+        width: 95%;
+        height: 45rem;
+    }
+
+    .reservation-modal-header{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .reservation-info{
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: .2rem;
+    }
+
+    .reservation-qrcode{
+        width: 250px;
+        margin: auto;
+        padding: 1rem 0;
+    }
+
+    .parking-lots-area{
+        width: 95%;
+        margin: 0 2.5%;
+        border-radius: 1rem;
+    }
+
+    .parking-lot-modal{
+        height: 38rem;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .parking-lot-modal img{
+        height: 200px;
+    }
+
+    .rate-icon{
+        font-size: 1.5rem;
+    }
+
+    .fav-icon{
+        font-size: 2rem;
+    }
+
+    .loc-icon{
+        font-size: 2rem;
+    }
+
+    .parking-lot-history-modal{
+        width: 90%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+
+    .parking-lot-history-modal img{
+        width: 200px;
+        border-radius: .25rem;
+    }
+
+    .parking-lot-details-modal{
+        width: 90%;
+    }
+
+    .parking-lot-details-name{
+        padding-top: 1.2rem;
+    }
+
+    .parking-lot-details-modal img{
+        border-radius: .25rem;
+    }
+
+    .modal-charge-station-text{
+        display: block;
+    }
+
+    .modal-terms-and-conditions{
+        padding-top: 1rem;
+        display: block;
+    }
+
+    .modal-container{
+        height: 100%;
+        width: 100%;
+    }
+
+    .reservation-info-modal{
+        width: 90%;
+        margin: 0;
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .reservation-info-area{
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .reservation-time-area{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .parking-lot-vacancy-area{
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .reservation-check-in-area, .reservation-check-out-area, .parking-lot-floor-area,  .parking-lot-reserved-vacancy-area{
+        margin: 0;
+    }
+
+    .open-payment-button{
+        justify-content: center;
+    }
+
+    .saved-card{
+        font-size: .8rem;
+    }
+
+    .pix-info{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .pix-qr-code-img{
+        height: 200px;
+        width: 200px;
+        margin: auto;
+    }
+
+    .pix-account-info-area{
+        padding: 1rem 0;
+    }
+
+    .review-reservation-info-area{
+        display: grid;
+        grid-template-columns: 2fr 2fr;
+        gap: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    .review-price-area{
+        font-size: 1.2rem;
+    }
+
+    .footer-subscribe{
+        width: 350px;
+    }
+}
+
+/* Para dispositivos médios */
+@media screen and (min-width: 576px){
+
+    .change-theme{
+        font-size: 1.5rem;
+    }
+
+    .modal-container{
+        padding: 0 2rem;
+    }
+
+    .parking-lot-modal{
+        height: 20rem;
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+    }
+
+    .parking-lot-img{
+        height: 200px;
+        max-width: 200px;
+    }
+
+    .parking-lot-info{
+        height: 100px;
+    }
+
+    .show-modal-button{
+        display: flex;
+        justify-content: center;
+    }
+
+    .parking-lot-details-modal{
+        margin-top: 4rem;
+        height: 38rem;
+    }
+
+    .parking-lot-gallery{
+        padding: 0;
+    }
+
+    .parking-lot-vacancy-area{
+        display: flex;
+        align-items: center;
+    }
+
+    .payment-modal{
+        width: 95%;
+        margin: 3.8rem auto;
+    }
+
+    .reservation-review-modal{
+        margin-top: 3rem;
+    }
+
+    .pix-info{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .fav-icon, .loc-icon{
+        font-size: 2rem;
+    }
+    
+    .footer-subscribe{
+        width: 400px;
+    }
+}
+
+@media screen and (min-width: 767px){
+    body{
+        margin: 0;
+    }
+
+    .footer-container{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-container{
+        column-gap: 3rem;
+    }
+
+    .footer-subscribe{
+        width: initial;
+    }
+}
+
+/**Configurações de css para telas grandes (maiores que 768px) = mobile desativado**/
+
+@media (min-width: 778px){ 
+    .hamburger{
+        display: none;
+    }
+
+    #header{
+        position: unset; /*Verificar se unset está de acordo com as requisições (menu ficar no topo só na section home)*/
+        height: 12vh;
+    }
+
+    nav ul{
+        display: flex;
+        align-items: center;
+        list-style: none;
+        margin: 0;
+        display: flex;
+    }
+
+    .profile{
+        display: flex;
+    }
+
+    .mobile-nav{
+        display: none;
+    }
+
+    .ul-mobile{
+        display: none;
+    }
+
+    .login-area-mobile{
+        display: none;
+    }
+
+    .ul-mobile{
+        display: none;
+    }
+
+    
+}
+
+/* Para dispositivos grandes */
+
+@media screen and (min-width: 992px){
+   .container{
+        margin-left: auto;
+        margin-right: auto;
+   }
+
+   .section{
+       padding: 8rem 0 1rem;
+   }
+
+   .section-title,
+   .section-title-center{
+        font-size: 1.5rem;
+   }
+
+   .choose-bx{
+    position: absolute;
+    top: 20%;
+    left: 2%;
+   }
+
+    .select{
+        height: 24rem;
+        width: 14.82rem;
+        border-radius: 0 0 1rem 1rem;
+        display: grid;
+        grid-template-columns: 1fr;
+        padding: 0 2rem;
+   }
+
+   .search-button{
+        display: flex;
+        justify-content: center;
+   }
+
+   .parking-lot-modal{
+        height: 15rem;
+        display: flex;
+   }
+
+   .show-modal-button{
+        height: 4rem;
+   }
+
+   .reservation-modal{
+        height: 18rem;
+        margin: 0 auto;
+   }
+
+   .reservation-info{
+        display: flex;
+        justify-content: space-between;
+   }
+
+   .reservation-qrcode{
+        padding: 0;
+        margin: 0.5rem 2rem;
+        width: 150px;
+   }
+
+   .reservation-info-modal{
+        width: 60%;
+        display: block;
+   }
+
+   .reservation-info-area{
+        display: flex;
+   }
+
+   .parking-lot-floor-text{
+        margin-bottom: 2.4rem;
+   }
+
+   .parking-lot-vacancy-text{
+        margin-bottom: 2.4rem;
+   }
+
+   .parking-lot-img{
+        min-width: 280px;
+   }
+
+
+   .parking-lot-history-modal{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        padding: 1.5rem 0;
+        gap: 1rem;
+   }
+
+   .payment-modal{
+        width: 80%;
+   }
+
+   .parking-lot-details-modal{
+        margin-top: 0rem;
+        overflow-y: scroll;
+   }
+
+   .parking-lot-details-modal::-webkit-scrollbar-thumb{
+        background-color: #F7F5F9;
+   }
+
+   .parking-lot-gallery{
+        margin: 0;
+   }
+
+   .parking-lot-gallery a{
+        color: var(--cor-padrao);
+        background-color: #F7F5F9;
+   }
+
+   .parking-lot-gallery i{
+        font-size: 1rem;
+   }
+
+   .parking-lot-details-img{
+        height: 400px;
+        width: 600px;
+   }
+
+   .footer-logo{
+        font-size: 1rem;
+   }
+
+   .footer-container{
+        grid-template-columns: 1fr .5fr .5fr .5fr;
+   }
+
+   .footer-copy{
+        margin: 7rem 0 2rem;
+   }
+}
+
+@media screen and (min-width: 1200px){
+    .scrollup{
+        right: 3rem;
+    }
+}

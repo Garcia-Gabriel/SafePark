@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Homepage</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="/styles/index.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> 
+    <header class="header" id="header">
+      <nav>
+         <a href=""><img src="/Imgs/logo-homepage.png" alt="LOGO"><span>SAFE</span></a>  
+          <ul>
+            <li><a href="#" class="menu-link">Home</a></li>
+            <li><a href="#" class="menu-link">Sobre nós</a></li>
+            <li><a href="#" class="menu-link">Serviços</a></li>
+            <li><a href="#" class="menu-link">Contato</a></li>
+          </ul>
+      </nav>
+      <div class="login-area">
+        <i class="uil uil-moon change-theme" id="theme-button"></i>
+        <a href="/pages/login.html" class="account-btn">Login</a>
+        <a class="account-btn" href="#" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cadastrar-se</a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item" href="/pages/signUp.html">Como cliente</a>
+          <a class="dropdown-item" href="#">Como empresa</a>
+        </div>
+       </div>
+      <button class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </header>
+    <nav class="mobile-nav">
+      <ul class="ul-mobile">
+        <li><a href="#" class="menu-link">Home</a></li>
+        <li><a href="#" class="menu-link">Sobre nós</a></li>
+        <li><a href="#" class="menu-link">Serviços</a></li>
+        <li><a href="#" class="menu-link">Contato</a></li>
+      </ul>
+      <div class="login-area-mobile">
+        <a href="/pages/login.html" class="account-btn">Login</a>
+        <a href="#" class="account-btn" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cadastrar-se</a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item" href="/pages/signUp.html">Como cliente</a>
+          <a class="dropdown-item" href="#">Como empresa</a>
+        </div>
+       </div>
+    </nav>
+    <main>
+      <!-- SECTION HOME -->
+      <section class="home" id="home">
+        <div class="home-container container grid">
+          <img src="/Imgs/carro-homepage.svg" alt="" class="home-img">
+          <div class="home-data">
+            <h1 class="home-data">
+              Seja Bem vindo ao SAFEPARK!.
+            </h1>
+            <p class="home-description">
+              Aqui, neste site, nós oferecemos segurança e vigilância ao vivo para seu veículo em qualquer estacionamento. Para realizar o login clique abaixo em “ conectar-se! ”
+            </p>
+            <a href="#" class="button button--flex">
+              Conectar-se <i class="uil uil-angle-right button-icon"></i>
+            </a>
+             <div class="home-scroll">
+               <a href="#" class="scroll-button button--flex">
+                <i class="uil uil-mouse-alt"></i>
+                Arraste para baixo 
+                <i class="uil uil-arrow-down"></i>
+              </a>
+             </div>
+          </div>
+          <div class="home-social">
+            <span class="home-social-follow">Siga-nos</span>
+            <div class="home-social-links">
+              <a href="#" class="home-social-link">
+                <i class="uil uil-facebook-f"></i>
+              </a>
+              <a href="#" class="home-social-link">
+                <i class="uil uil-instagram"></i>
+              </a>
+              <a href="#" class="home-social-link">
+                <i class="uil uil-twitter"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- SECTION SOBRE NÓS -->
+      <section class="about section container" id="about">
+        <div class="about-container grid">
+          <img src="/Imgs/about-us-img.svg" alt="" class="about-img">
+          <div class="about-data">
+            <h2 class="section-title about-title">
+              Quem nós realmente somos e <br> Porque nos escolher
+            </h2>
+            <p class="about-description">
+              Somos uma equipe formada por ótimos profissionais que consiste em zelar pela segurança do seu veículo ao vivo. Como assim? Ao realizar seu cadastro no nosso site e entrar em algum estacionamento parceiro, iremos automaticamente fiscalizar a segurança do seu veículo em 
+            </p>
+
+            <div class="about-details">
+              <p class="about-details-description">
+                <i class="uil uil-check-square about-details-icon"></i>
+                A nossa equipe é cem por cento focada em prezar pela segurança de veículos.
+              </p>
+              <p class="about-details-description">
+                <i class="uil uil-check-square about-details-icon"></i>
+                Atualização ao vivo do status do seu veículo diretamente no seu smartphone.
+              </p>
+              <p class="about-details-description">
+                <i class="uil uil-check-square about-details-icon"></i>
+                Suporte 24 horas 
+              </p>
+              <p class="about-details-description">
+                <i class="uil uil-check-square about-details-icon"></i>
+                Pretendemos trabalhar da melhor forma possível para que possamos deixar nossos clientes cem por cento felizes
+              </p>
+            </div>
+            <a href="#" class="about-button button--link button--flex">
+              Participar <i class="uil uil-angle-right button-icon"></i>
+            </a>
+          </div>
+        </div>
+      </section>
+      <section class="steps section container">
+        <div class="steps-bg">
+          <h2 class="section-title-center steps-title">
+            Passos para começar a<br> proteger e acompanhar seu veículo
+          </h2>
+          <div class="steps-container grid">
+            <div class="steps-card">
+              <div class="steps-card-number">01</div>
+              <h3 class="steps-card-title">Escolha o estacionamento</h3>
+              <p class="steps-card-description">Nós lhe mostraremos quais estacionamentos estão disponíveis na área</p>
+            </div>
+            <div class="steps-card">
+              <div class="steps-card-number">02</div>
+              <h3 class="steps-card-title">Faça check-in no local</h3>
+              <p class="steps-card-description">Oferecemos check-in na entrada do local ou reserva de vaga e acompanhe o status do veículo</p>
+            </div>
+            <div class="steps-card">
+              <div class="steps-card-number">03</div>
+              <h3 class="steps-card-title">Finalize a sessão</h3>
+              <p class="steps-card-description">Ao sair do estabelecimento, confirme a saída do estabelecimento sno aplicativo.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+       <!-- SECTION QUESTÕES -->
+      <section class="questions section">
+        <h2 class="section-title-center questions-title container">
+          Algumas questões comuns que são perguntadas frequentemente
+        </h2>
+        <div class="questions-container container grid">
+          <div class="questions-group">
+            <div class="questions-item">
+              <!-- Perguntas -->
+              <header class="questions-header">
+                <i class="uil uil-plus questions-icon"></i>
+                <h3 class="questions-item-title">Há alguma cobrança pós cadastro? Ou uso dos seus serviços?</h3>
+              </header>
+              <div class="questions-content">
+                <p class="questions-description">
+                  Não há cobrança para se cadastrar, porém nós faremos a cobrança ao usar estacionamentos que requerem pagamento
+                </p>
+              </div>
+            </div>
+            <div class="questions-item">
+              <header class="questions-header">
+                <i class="uil uil-plus questions-icon"></i>
+                <h3 class="questions-item-title">Servem até para estacionamento 24 horas?</h3>
+              </header>
+              <div class="questions-content">
+                <p class="questions-description">
+                  Alguns estacionamentos funcionam até 24 horas
+                </p>
+              </div>
+            </div>
+            <div class="questions-item">
+              <header class="questions-header">
+                <i class="uil uil-plus questions-icon"></i>
+                <h3 class="questions-item-title">Em caso de emergência como vão me contatar?</h3>
+              </header>
+              <div class="questions-content">
+                <p class="questions-description">
+                  Em caso de emergência contataremos pelo e-mail, celular ou mensagens pelo app.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="questions-group">
+            <div class="questions-item">
+              <!-- Perguntas -->
+              <header class="questions-header">
+                <i class="uil uil-plus questions-icon"></i>
+                <h3 class="questions-item-title">Os serviços são oferecidos em estacionamento de shopping?</h3>
+              </header>
+              <div class="questions-content">
+                <p class="questions-description">
+                  Quando for retirar seu veículo basta realizar o check-out em nossa plataforma e, caso mandatório, realizar o pagamento para poder sair do estabelecimento.
+                </p>
+              </div>
+            </div>
+            <div class="questions-item">
+              <header class="questions-header">
+                <i class="uil uil-plus questions-icon"></i>
+                <h3 class="questions-item-title">Como faço para encerrar os serviços depois que saí do estacionamento?</h3>
+              </header>
+              <div class="questions-content">
+                <p class="questions-description">
+                  Confirma o checkout do estabelecimento para mostrar que você saiu do banco de dados
+                </p>
+              </div>
+            </div>
+            <div class="questions-item">
+              <header class="questions-header">
+                <i class="uil uil-plus questions-icon"></i>
+                <h3 class="questions-item-title">Vocês têm atendimento para clientes, como algum telefone para suporte?</h3>
+              </header>
+              <div class="questions-content">
+                <p class="questions-description">
+                  Atendimento ao cliente via e-mail e futuramente possível expansão para uso de celulares comerciais para o atendimento.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+       <!-- SECTION CONTATO -->
+       <section class="contact section container" id="contact">
+        <div class="contact-container grid">
+          <div class="contact-box">
+            <h2 class="section-title">
+              Entre em contato conosco hoje através dos contatos abaixo
+            </h2>
+            <div class="contact-data">
+              <div class="contact-information">
+                <h3 class="contact-subtitle">
+                  Entre em contato para suporte imediato
+                </h3>
+                <span class="contact-description">
+                  <i class="uil uil-phone"></i>
+                  +55 (11) 99999-9999
+                </span>
+              </div>
+              <div class="contact-information">
+                <h3 class="contact-subtitle">
+                  Entre em contato para suporte imediato
+                </h3>
+                <span class="contact-description">
+                  <i class="uil uil-envelope"></i>
+                  safepark@gmail.com
+                </span>
+              </div>    
+            </div>
+          </div>
+          <!-- Formulário de enviar perguntas -->
+          <form action="" class="contact-form">
+            <div class="contact-inputs">
+              <div class="contact-content">
+                <input type="email" placeholder=" " class="contact-input">
+                <label for="" class="contact-label">Email</label>
+              </div>
+              <div class="contact-content">
+                <input type="text" placeholder=" " class="contact-input">
+                <label for="" class="contact-label">Assunto</label>
+              </div>
+              <div class="contact-content contact-area">
+                <textarea name="message" id="" cols="30" rows="10" class="contact-input"></textarea>
+                <label for="" class="contact-label">Mensagem</label>
+              </div>
+            </div>
+            <button class="button button--flex">
+              Enviar mensagem
+              <i class="uil uil-arrow-up-right button-icon"></i>
+            </button>
+          </form>
+        </div>
+       </section>
+       <!-- RODAPÉ -->
+       <footer class="footer section">
+        <div class="footer-container container grid">
+          <div class="footer-content">
+            <a href="#" class="footer-logo">
+              <img src="/Imgs/logo-homepage.png" alt="">
+              Safepark
+            </a>
+            <h3 class="footer-title">
+              Inscreva-se para acompanhar atualizações sobre nós.
+            </h3>
+            <div class="footer-subscribe">
+              <input type="email" placeholder="Insira seu email" class="footer-input">
+              <button class="button button--flex footer-button">
+                Enviar
+                <i class="uil uil-arrow-up-right button-icon"></i>
+              </button>
+            </div>
+          </div>
+          <div class="footer-content">
+            <h3 class="footer-title">
+              Nosso endereço
+            </h3>
+            <ul class="footer-data">
+              <li class="footer-information">Avenida Paulista</li>
+              <li class="footer-information">1738</li>
+              <li class="footer-information">São Paulo</li>
+            </ul>
+          </div>
+          <div class="footer-content">
+            <h3 class="footer-title">
+              Contate-nos
+            </h3>
+            <ul class="footer-data">
+              <li class="footer-information">+55 (11) 99999 9999</li>
+              <div class="footer-social">
+                <a href="" class="footer-social-link">
+                  <i class="uil uil-instagram"></i>
+                </a>
+                <a href="" class="footer-social-link">
+                  <i class="uil uil-facebook-f"></i>
+                </a>
+                <a href="" class="footer-social-link">
+                  <i class="uil uil-twitter"></i>
+                </a>
+              </div>
+            </ul>
+          </div>
+          <div class="footer-content">
+            <h3 class="footer-title">
+              Nós aceitamos os seguintes métodos de pagamento
+            </h3>
+            
+            <div class="footer-cards">
+              <img src="/Imgs/mastercard.svg" alt="Mastercard">
+              <img src="/Imgs/visa-card.svg" alt="Visa">
+              <img src="/Imgs/paypal.svg" alt="Paypal">
+              <img src="/Imgs/Pix.svg" alt="Pix">
+            </div>
+          </div>
+        </div>
+        <p class="footer-copy">
+          &copy; Safepark. Todos os direitos reservados
+        </p>
+       </footer>
+       <a href="#" class="scrollup" id="scroll-up">
+        <i class="uil uil-arrow-up scrollup-icon"></i>
+       </a>
+    </main>
+  </body>
+  <script src="/scripts/index.js"></script>
+</html>

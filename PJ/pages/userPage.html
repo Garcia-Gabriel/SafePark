@@ -1,0 +1,573 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Estacionamentos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="/styles/userPage.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/solid.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> 
+    <header class="header" id="header">
+      <nav>
+         <a href="/pages/index.html"><img src="/Imgs/logo-homepage.png" alt="LOGO"><span>SAFE</span></a>  
+          <ul>
+            <li><a href="#" class="menu-link">Estacionamentos</a></li>
+            <li><a href="#" class="menu-link">Reservas</a></li>
+            <li><a href="#" class="menu-link">Histórico</a></li>
+            <li><a href="#" class="menu-link">Suporte</a></li>
+          </ul>
+      </nav>
+      <div class="menu-buttons-area">
+      <i class="uil uil-moon change-theme" id="theme-button"></i>
+      <a href="#">
+        <button class="profile button button--flex">     
+            <img src="/Imgs/icons8-google.svg" alt=""> <!--Adicionar na API do login do google-->
+            Gabriel
+        </button>
+      </a>
+      <button class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    </header>
+    <nav class="mobile-nav">
+      <ul class="ul-mobile">
+        <li><a href="#" class="menu-link">Estacionamentos</a></li>
+        <li><a href="#" class="menu-link">Histórico</a></li>
+        <li><a href="#" class="menu-link">Configurações</a></li>
+        <li><a href="#" class="menu-link">Suporte</a></li>
+      </ul>
+    </nav>
+    <main>
+        <section class="locations-section" id="#locations">
+            <!-- Div que contém o iframe(quadro) do Google Maps -->
+            <div class="locations-container grid">
+              <iframe src="https://my.atlistmaps.com/map/0072f2c4-162c-438d-aaf5-39f9c4ad5152?share=true" allow="geolocation" width="100%" height="500px" frameborder="0" scrolling="no" allowfullscreen></iframe>
+            </div>
+            <!-- Modal que contém as funções de busca do estacionamento -->
+            <div class="choose-bx">
+                <div class="stay-bx">
+                    <button><i class="uil uil-estate button-icon"></i></button>
+                    <button><i class="uil uil-star button-icon"></i></button>
+                    <button><i class="uil uil-compress-alt button-icon"></i></button>
+                </div>
+                <div class="select">
+                    <div class="local-card">
+                        <label for="local">Local</label>
+                        <input type="text" name="" id="local">
+                    </div>
+                    <div class="vehicle-card">
+                      <label for="tipo-veiculo">Seu veículo</label>
+                      <select name="veiculos" id="tipo-veiculo">
+                        <option value="selecione">Tipo de veículo</option>
+                        <option value="Carro">Carro</option>
+                        <option value="Carro-híbrido">Carro híbrido/ elétrico</option>
+                        <option value="Moto">Moto</option>
+                        <option value="Moto-eletrica">Moto hibrida/ elétrica</option>
+                        <option value="Bicicleta">Bicicleta</option>
+                        <option value="Caminhão">Caminhão</option>
+                      </select>
+                    </div>
+                    <div class="time-card">
+                      <div class="check-in-time">
+                        <label for="check-in-time">Check-in</label>
+                        <input type="time" name="" id="check-in-time">
+                      </div>        
+                      <div class="check-out-time">
+                        <label for="check-out-time">Check-out</label>
+                        <input type="time" name="" id="check-out-time">
+                      </div>         
+                    </div> 
+                    <a href="#!" class="search-button button button--flex">Buscar<i class="uil uil-angle-right button-icon"></i></a>   
+                </div>
+            </div>
+            <div class="home-scroll">
+              <a href="#" class="scroll-button button--flex">
+               <i class="uil uil-mouse-alt"></i>
+               Arraste para baixo 
+               <i class="uil uil-arrow-down"></i>
+             </a>
+            </div>
+        </section>
+        <section class="reservations-section section container">
+          <div class="reservations-area grid">
+            <h2 class="section-title-center reservations-area-title">Reservas</h2>
+            <div class="reservation-modal">
+              <header class="reservation-modal-header">
+                <h4 class="reservation-parking-lot-name">Estacionamento em São Paulo</h4>
+                <span class="reservation-time-left"><i class="uil uil-clock"></i><strong>Tempo restante</strong> para chegar ao local: 08 minutos e 35 segundos</span>
+              </header>
+              <div class="reservation-info">
+                <img src="/Imgs/SafePark.png" alt="QRCode de reserva" class="reservation-qrcode">
+                <div class="check-in-time-area">
+                  <span class="check-in-reservation">check-in</span>
+                  <p class="check-in-time-reservation">14:30</p>
+                </div>
+                <div class="check-out-time-area">
+                  <span class="check-out-reservation">check-out</span>
+                  <p class="check-out-time-reservation">15:30</p>
+                </div>
+                <div class="parking-space-area">
+                  <span class="parking-space-reservation">Vaga</span>
+                  <p class="parking-space-value-reservation">15D</p>
+                </div>
+                <div class="reservation-payment-area">
+                  <span class="reservation-payment-text">Método de pagamento</span>
+                  <p class="reservation-payment-method">**9234</p>
+                </div>
+                <div class="reservation-buttons-area">
+                  <a href=""><i class="uil uil-comment-alt-message message-icon button-icon"></i></a>
+                  <a href=""><i class="uil uil-phone-volume call-icon button-icon"></i></a>
+                  <a href=""><i class="uil uil-exclamation-triangle report-icon button-icon"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="parking-lots-section section">
+          <div class="parking-lots-area grid">
+            <h2 class="section-title-center parking-lots-area-title">Estacionamentos perto de você</h2>
+            <div class="parking-lot-modal">
+              <img src="/Imgs/estacionamento1.jpg" class="parking-lot-img" alt="Fotos do estacionamento">
+              <div class="parking-lot-info">
+                <p class="parking-lot-location">Avenida Paulista, São Paulo</p>
+                <h4 class="parking-lot-name">Estacionamento em São Paulo</h4>
+                <i class="uis uis-star rate-icon"></i>
+                <i class="uis uis-star rate-icon"></i>
+                <i class="uis uis-star rate-icon"></i>
+                <i class="uis uis-star rate-icon"></i>
+                <i class="uis uis-star rate-icon"></i>
+                <p class="charge-station-text"><i class="uil uil-bolt-alt charge-station-icon"></i> Estação de recarga</p>
+                <p class="security-text"><i class="uil uil-shield-check security-icon"></i> Segurança 24 horas</p>
+              </div>
+              <div class="parking-lots-buttons-area">
+                <i class="uil uil-heart fav-icon button-icon"></i>
+                <i class="uil uil-location-point loc-icon button-icon"></i>        
+              </div>
+              <a href="#!" class="show-modal-button button button--flex">
+                Ver mais <i class="uil uil-angle-right button-icon"></i>
+              </a>
+            </div>
+            <div class="parking-lot-modal">
+              <img src="/Imgs/estacionamento2.jpg" class="parking-lot-img" alt="Fotos do estacionamento">
+              <div class="parking-lot-info">
+                <p class="parking-lot-location">Centro, São Caetano</p>
+                <h4 class="parking-lot-name">Estacionamento em São Caetano</h4>
+                <i class="uis uis-star rate-icon"></i>
+                <i class="uis uis-star rate-icon"></i>
+                <i class="uis uis-star rate-icon"></i>
+                <i class="uis uis-star rate-icon"></i>
+                <i class="uis uis-star rate-icon"></i>
+                <p class="charge-station-text"><i class="uil uil-bolt-alt charge-station-icon"></i> Estação de recarga</p>
+                <p class="security-text"><i class="uil uil-shield-check security-icon"></i> Segurança 24 horas</p>
+              </div>
+              <div class="parking-lots-buttons-area">
+                <i class="uil uil-heart fav-icon button-icon"></i>
+                <i class="uil uil-location-point loc-icon button-icon"></i>
+              </div>
+              <a href="#!" class="show-modal-button button button--flex">
+                Ver mais <i class="uil uil-angle-right button-icon"></i>
+              </a>
+            </div>
+            <div class="parking-lot-modal">
+              <img src="/Imgs/estacionamento3.jpg" class="parking-lot-img" alt="Fotos do estacionamento">
+              <div class="parking-lot-info">
+                <p class="parking-lot-location">Centro, São Bernardo</p>
+                <h4 class="parking-lot-name">Estacionamento em São Bernardo </h4>
+                <i class="uis uis-star rate-icon"></i>
+                <i class="uis uis-star rate-icon"></i>
+                <i class="uis uis-star rate-icon"></i>
+                <i class="uis uis-star rate-icon"></i>
+                <i class="uis uis-star rate-icon"></i>
+                <p class="security-text"><i class="uil uil-shield-check security-icon"></i> Segurança 24 horas</p>
+                <p class="truck-area-text"><i class="uil uil-truck truck-icon"></i> Área para caminhões</p>
+              </div>
+              <div class="parking-lots-buttons-area">
+                <i class="uil uil-heart fav-icon button-icon"></i>
+                <i class="uil uil-location-point loc-icon button-icon"></i>
+              </div>
+              <a href="#!" class="show-modal-button button button--flex">
+                Ver mais <i class="uil uil-angle-right button-icon"></i>
+              </a>
+            </div>
+            <div class="parking-lot-modal">
+              <img src="/Imgs/estacionamento4.jpg" class="parking-lot-img" alt="Fotos do estacionamento">
+              <div class="parking-lot-info">
+                <p class="parking-lot-location">Centro, Santo André</p>
+                <h4 class="parking-lot-name">Estacionamento em Santo andré</h4>
+                <i class="uis uis-star rate-icon"></i>
+                <i class="uis uis-star rate-icon"></i>
+                <i class="uis uis-star rate-icon"></i>
+                <i class="uis uis-star rate-icon"></i>
+                <i class="uis uis-star rate-icon"></i>
+                <p class="security-text"><i class="uil uil-shield-check security-icon"></i> Segurança 24 horas</p>
+              </div>
+              <div class="parking-lots-buttons-area">
+                <i class="uil uil-heart fav-icon button-icon"></i>
+                <i class="uil uil-location-point loc-icon button-icon"></i>
+              </div>
+              <a href="#!" class="show-modal-button button button--flex">
+                Ver mais <i class="uil uil-angle-right button-icon"></i>
+              </a>
+            </div>
+            <!-- Modal que aparece ao apertar o botão "ver mais" na seção de estacionamentos por perto -->
+            <div class="modal-container">
+              <div class="parking-lot-details-modal">       
+                <div class="parking-lot-details-header">
+                  <h4 class="parking-lot-details-name">Estacionamento em São Paulo</h4>
+                  <a href="#!" class="parking-lot-details-close-button button-icon"><i class="uil uil-multiply close-icon"></i> Fechar</a>
+                </div>
+                <i class="uis uis-star parking-lot-details-rate-icon"></i>
+                <i class="uis uis-star parking-lot-details-rate-icon"></i>
+                <i class="uis uis-star parking-lot-details-rate-icon"></i>
+                <i class="uis uis-star parking-lot-details-rate-icon"></i>
+                <i class="uis uis-star parking-lot-details-rate-icon"></i>
+                <div class="parking-lot-gallery">
+                  <a href="#!" class="button button--flex"> <i class="uil uil-angle-left button-icon"></i></a>
+                  <img src="/Imgs/estacionamento1.jpg" alt="Galeria do estabelecimento" class="parking-lot-details-img">
+                  <a href="#!" class="button button--flex"><i class="uil uil-angle-right button-icon"></i></a>
+                </div>
+                <span class="modal-charge-station-text"><i class="uil uil-bolt-alt charge-station-icon"></i> Estação de recarga</span>
+                <span class="modal-security-text"><i class="uil uil-shield-check security-icon"></i> Segurança 24 horas</span>
+                <p class="parking-lot-details-about">Estacionamento localizado no centro de São Paulo, com estrutura de qualidade, segurança e postos de recarga para veículos elétricos</p>
+                <p class="parking-lot-details-price">R$18,50/Hora</p>
+                <a href="#!" class="booking-button button button--flex">Reservar vaga <i class="uil uil-angle-right button-icon"></i></a>
+                <a href="#!" class="modal-terms-and-conditions">Termos e condições</a>
+              </div>
+              <div class="reservation-info-modal-closed">
+                <div class="reservation-info-header">
+                  <h4 class="reservation-info-title">Defina as informações</h4>
+                  <a href="#!" class="parking-lot-details-close-button button-icon"><i class="uil uil-multiply close-icon"></i> Fechar</a>
+                </div>
+                <p class="reservation-info-text">Informe a sua hora de chegada, hora de saída, andar desejado e a vaga escolhida por favor.</p>
+                <div class="reservation-info-area">
+                  <div class="reservation-time-area">
+                    <div class="reservation-check-in-area">
+                      <label for="reservation-check-in-time" class="reservation-check-in-text">Check-in previsto</label>
+                      <input type="time" name="" class="reservation-check-in-time" id="reservation-check-in-time">
+                    </div>
+                    <div class="reservation-check-out-area">
+                      <label for="reservation-check-out-time" class="reservation-check-out-text">Check-out previsto</label>
+                      <input type="time" name="" class="reservation-check-out-time" id="reservation-check-out-time">
+                    </div>
+                  </div>
+                  <div class="parking-lot-vacancy-area">
+                    <div class="parking-lot-floor-area">
+                      <label for="floor" class="parking-lot-floor-text">Seu andar da vaga</label>
+                      <select name="veiculos" class="reservations-floor-options"id="floor">
+                        <option value="selecione">Andar da vaga</option>
+                        <option value="A">A - Primeiro andar</option>
+                        <option value="B">B - Segundo andar</option>
+                        <option value="C">C - Terceiro andar</option>
+                        <option value="D">D - Quarto andar</option>
+                        <option value="E">E - Quinto andar</option>
+                        <option value="F">F - Sexto andar</option>
+                      </select>
+                    </div>
+                    <div class="parking-lot-reserved-vacancy-area">
+                      <label for="free-vacancies" class="parking-lot-vacancy-text">Vagas disponíveis</label>
+                      <select name="veiculos" class="reservations-floor-options"id="floor">
+                        <option value="selecione">Sua vaga</option>
+                        <option value="A">04 - Setor Sul</option>
+                        <option value="B">09 - Setor Sul</option>
+                        <option value="C">14 - Setor Oeste</option>
+                        <option value="D">21 - Setor Norte</option>
+                        <option value="E">26 - Setor Norte</option>
+                        <option value="F">27 - Setor Leste</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <a href="#!" class="open-payment-button button button--flex">Confirmar<i class="uil uil-angle-right button-icon"></i></a>
+              </div>
+             <div class="payment-modal-closed">
+                <div class="payment-modal-header">
+                  <h4 class="payment-modal-title">Pagamento</h4>
+                  <a href="#!" class="parking-lot-details-close-button button-icon"><i class="uil uil-multiply close-icon"></i> Fechar</a>
+                </div>
+                <p class="payment-modal-about">Realize o pagamento da reserva via cartão de créditou ou débito, ou por pix</p>
+                <div class="payment-method-area">
+                  <a href="#!" class="card-payment-button-active"><i class="uil uil-credit-card card-icon"></i>Cartão</a>
+                  <a href="#!" class="pix-payment-button">PIX</a>
+                </div> 
+                <div class="card-method-area">
+                  <p class="saved-cards-text">Cartões salvos</p>
+                  <form action="">
+                    <div class="saved-card">
+                      <input type="radio" name="card-options" id="first-card-option">
+                      <img src="/Imgs/Mastercard.svg" class="card-flag" alt="">
+                      <span>Manuel Gomes</span>
+                      <span>**9923</span>
+                      <span>Crédito</span>
+                      <span>11/29</span>
+                    </div>
+                    <div class="saved-card">
+                      <input type="radio" name="card-options" id="second-card-option">
+                      <img src="/Imgs/Visa-card.svg" class="card-flag" alt="">
+                      <span>Caique Oliveira</span>
+                      <span>**3284</span>
+                      <span>Débito</span>
+                      <span>04/25</span>
+                    </div>
+                    <div class="saved-card">
+                      <input type="radio" name="card-options" id="third-card-option">
+                      <img src="/Imgs/Mastercard.svg" class="card-flag" alt="">
+                      <span>Heloisa Corrêa</span>
+                      <span>**8823</span>
+                      <span>Crédito</span>
+                      <span>07/28</span>
+                    </div>
+                  </form>
+                  <a href="#!" class="add-card-button"><i class="uil uil-plus-circle"></i> Adicionar cartão</a>
+                </div>
+                <div class="pix-area-closed">
+                  <p class="pix-text">Informações para o pix</p>
+                  <div class="pix-info">
+                    <div class="pix-qr-code-area">
+                      <p class="pix-qr-code-text">QR Code do pix</p>
+                      <img src="/Imgs/SafePark.png" alt="QRCode da reserva" class="pix-qr-code-img">
+                    </div>
+                    <div class="pix-account-info-area">
+                      <p class="pix-account-text">Informações da conta</p>
+                      <P class="pix-account-text">Nome da instituição</P>
+                      <P class="pix-account-name">SafePark LTDA.</P>
+                      <P class="pix-account-text">CNPJ da instituição</P>
+                      <P class="pix-account-name">XX. XXX. XXX/0001-XX</P>
+                      <P class="pix-account-text">Chave Pix</P>
+                      <span class="pix-account-name">3hd2-d29n-dn2-nids-n2ni-nd2i</span> 
+                      <a href="#!" class="copy-pix-key-button"><i class="uil uil-copy copy-icon"></i>Copiar</a> 
+                    </div>
+                  </div>
+                </div> 
+                <div class="confirm-payment-area">
+                  <a href="#!" class="confirm-payment-button button button--flex">Confirmar<i class="uil uil-arrow-right button-icon"></i></a>
+                </div>
+                </div>
+                <div class="reservation-review-modal-closed">
+                  <div class="review-modal-header">
+                    <h4 class="review-modal-title">Revisão</h4>
+                    <a href="#!" class="parking-lot-details-close-button button-icon"><i class="uil uil-multiply close-icon"></i> Fechar</a>
+                  </div>
+                    <p class="review-modal-text">Confire se a informações da vaga e a forma de pagamento estão de acordo.</p>
+                    <div class="reservation-review-area">
+                      <div class="review-payment-method-area">
+                        <div class="review-payment-method-header">
+                          <span class="review-payment-method-title">Pagamento</span>
+                          <a href="#!" class="edit-payment-button">Editar</a>
+                        </div>
+                        <div class="review-payment-info">
+                          <img src="/Imgs/Mastercard.svg" alt="Bandeira do cartão">
+                          <span>Manuel Gomes</span>
+                          <span>**7236</span>
+                          <span>10/30</span>     
+                        </div>                
+                      </div>
+                    <div class="review-reservation-info-area">
+                        <div class="review-check-in-area">
+                          <p class="review-check-in-text">Check-in</p>
+                          <span>14:30</span>
+                        </div>
+                        <div class="review-check-out-area">
+                          <p class="review-check-out-text">Check-out</p>
+                          <span>15:30</span>
+                        </div> 
+                      <div class="review-floor-area">
+                        <p class="review-floor-text">Andar</p>
+                        <span>B - Segundo andar</span>
+                      </div>
+                      <div class="review-vacancy-area">
+                        <p class="review-vacancy-text">Vaga</p>
+                        <span>09 - Setor Sul</span>
+                      </div>
+                      <div class="review-price-area">
+                        <p class="review-price-text">Valor</p>
+                        <span><strong>R$ 30,95</strong></span>
+                      </div>
+                    </div>
+                  </div> 
+                  <a href="#!" class="button button-icon button--flex">Confirmar<i class="uil uil-arrow-right button-icon"></i></a>              
+                </div>
+              </div>
+            </div>
+        </section>
+        <section class="history-section section container">
+          <div class="history-area grid">
+            <h2>Histórico</h2>
+            <div class="parking-lot-history-modal">
+              <img src="/Imgs/estacionamento4.jpg" alt="Foto do estacionamento" class="history-local-img">
+              <div class="name-location-info">
+                <h3>SafePark</h3>
+                <p>Centro, São Caetano do sul</p>
+              </div>
+              <div class="history-date">
+                <span>Data</span>
+                <p>10/04</p>
+              </div>
+              <div class="history-check-in">
+                <span>Check-in</span>
+                <p>14:30</p>
+              </div>
+              <div class="history-check-out">
+                <span>Check-out</span>
+                <p>15:30</p>
+              </div>
+              <div class="history-payment">
+                <span>Pagamento</span>
+                <p>Dinheiro</p>
+              </div>
+              <div class="history-value">
+                <span>Valor</span>
+                <p>R$ 14,50</p>
+              </div>
+              <a href="#" class="verify-history-button button-icon button--flex">Verificar<i class="uil uil-arrow-right value-details-icon button-icon"></i></a>
+            </div>
+            <div class="parking-lot-history-modal">
+              <img src="/Imgs/estacionamento6.jpg" alt="Foto do estacionamento" class="history-local-img">
+              <div class="name-location-info">
+                <h3>SafePark</h3>
+                <p>Centro, Santo André</p>
+              </div>
+              <div class="history-date">
+                <span>Data</span>
+                <p>28/03</p>
+              </div>
+              <div class="history-check-in">
+                <span>Check-in</span>
+                <p>11:38</p>
+              </div>
+              <div class="history-check-out">
+                <span>Check-out</span>
+                <p>19:49</p>
+              </div>
+              <div class="history-payment">
+                <span>Pagamento</span>
+                <p>**9832</p>
+              </div>
+              <div class="history-value">
+                <span>Valor</span>
+                <p>R$ 41,30</p>
+              </div>
+              <a href="#" class="verify-history-button button-icon button--flex">Verificar<i class="uil uil-arrow-right value-details-icon button-icon"></i></a>
+            </div>
+            <div class="parking-lot-history-modal">
+              <img src="/Imgs/estacionamento5.jpg" alt="Foto do estacionamento" class="history-local-img">
+              <div class="name-location-info">
+                <h3>SafePark</h3>
+                <p>Mooca, São Paulo</p>
+              </div>
+              <div class="history-date">
+                <span>Data</span>
+                <p>15/03</p>
+              </div>
+              <div class="history-check-in">
+                <span>Check-in</span>
+                <p>12:31</p>
+              </div>
+              <div class="history-check-out">
+                <span>Check-out</span>
+                <p>15:47</p>
+              </div>
+              <div class="history-payment">
+                <span>Pagamento</span>
+                <p>Pix</p>
+              </div>
+              <div class="history-value">
+                <span>Valor</span>
+                <p>R$ 30,39</p>
+              </div>
+              <a href="#" class="verify-history-button button--flex">Verificar<i class="uil uil-arrow-right value-details-icon button-icon"></i></a>
+            </div>
+          </div>
+        </section>
+        <footer class="footer section">
+          <div class="footer-container container grid">
+            <div class="footer-content">
+              <a href="#" class="footer-logo">
+                <img src="/Imgs/logo-homepage.png" alt="">
+                Safepark
+              </a>
+              <h3 class="footer-title">
+                Inscreva-se para acompanhar atualizações sobre nós.
+              </h3>
+              <div class="footer-subscribe">
+                <input type="email" placeholder="Insira seu email" class="footer-input">
+                <button class="button button--flex footer-button">
+                  Enviar
+                  <i class="uil uil-arrow-up-right button-icon"></i>
+                </button>
+              </div>
+            </div>
+            <div class="footer-content">
+              <h3 class="footer-title">
+                Nosso endereço
+              </h3>
+              <ul class="footer-data">
+                <li class="footer-information">Avenida Paulista</li>
+                <li class="footer-information">1738</li>
+                <li class="footer-information">São Paulo</li>
+              </ul>
+            </div>
+            <div class="footer-content">
+              <h3 class="footer-title">
+                Contate-nos
+              </h3>
+              <ul class="footer-data">
+                <li class="footer-information">+55 (11) 99999 9999</li>
+                <div class="footer-social">
+                  <a href="" class="footer-social-link">
+                    <i class="uil uil-instagram"></i>
+                  </a>
+                  <a href="" class="footer-social-link">
+                    <i class="uil uil-facebook-f"></i>
+                  </a>
+                  <a href="" class="footer-social-link">
+                    <i class="uil uil-twitter"></i>
+                  </a>
+                </div>
+              </ul>
+            </div>
+            <div class="footer-content">
+              <h3 class="footer-title">
+                Nós aceitamos os seguintes métodos de pagamento
+              </h3>
+              
+              <div class="footer-cards">
+                <img src="/Imgs/mastercard.svg" alt="Mastercard">
+                <img src="/Imgs/visa-card.svg" alt="Visa">
+                <img src="/Imgs/paypal.svg" alt="Paypal">
+                <img src="/Imgs/Pix.svg" alt="Pix">
+              </div>
+            </div>
+          </div>
+          <p class="footer-copy">
+            &copy; Safepark. Todos os direitos reservados
+          </p>
+         </footer>
+         <a href="#" class="scrollup" id="scroll-up">
+          <i class="uil uil-arrow-up scrollup-icon"></i>
+         </a>
+    </main>
+  </body>
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
+  <script src="/scripts/userPage.js"></script>
+</html>
