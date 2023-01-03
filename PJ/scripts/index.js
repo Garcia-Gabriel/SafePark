@@ -1,4 +1,4 @@
-const hamburguer = document.querySelector('.hamburger') //Varivél botão hamburger
+const hamburguer = document.querySelector('.hamburger') //Variável botão hamburger
 const mobile_menu = document.querySelector('.mobile-nav')
 
 // função que faz a lista de classe css normal do botão hamburguer para a classe "is-active"
@@ -96,4 +96,40 @@ themeButton.addEventListener('click', () => {
     localStorage.setItem('selected-icon', getCurrentIcon())
 })
 
+// FUNÇÃO DE SCROLL SUAVE DOS BOTÕES DO MENU
 
+const menuItems = document.querySelectorAll('nav a[href^="#"]');
+
+menuItems.forEach(item => {
+    item.addEventListener('click', scrollToId);
+})
+
+function scrollToId(event){
+    event.preventDefault();
+    const element = event.target;
+    const id = element.getAttribute('href');
+    const to = document.querySelector(id).offsetTop;
+
+    window.scroll({
+        top: to,
+        behavior: "smooth",
+    });
+}
+
+// FUNÇÃO DE ANIMAÇÃO DOS ELEMENTOS
+
+const sr = ScrollReveal({
+    origin: 'top',
+    distance: '60px',
+    duration: 1500,
+    delay: 400,
+    // reset: true
+})
+
+sr.reveal(`.home-container`)
+sr.reveal(`.home-img`, {delay: 500})
+sr.reveal(`.home-social`, {delay: 600})
+sr.reveal(`.about-img, .contact-box`, {origin: 'left'})
+sr.reveal(`.about-data, .contact-form`, {origin: 'right'})
+sr.reveal(`.steps-card, .footer`, {interval: 100})
+sr.reveal(`.questions-group`, {origin: 'right'})
