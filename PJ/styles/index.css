@@ -620,7 +620,9 @@ body.dark-theme{
 /*ESTILIZAÇÕES DA SECTION DE CONTATO*/
 
 .contact-container{
+    gap: 1.5rem;
     row-gap: 3.5rem;
+    
 }
 
 .contact-data{
