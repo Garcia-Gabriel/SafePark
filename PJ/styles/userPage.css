@@ -127,6 +127,16 @@ p{
     column-gap: .5rem;
 }
 
+.toastify.on.info{
+    background: var(--cor-background);
+    color: var(--cor-logo)
+}
+
+.toastify.on.alert{
+    background: red;
+    color: #FFFF;
+}
+
 /*ESTILIZAÇÕES DO MENU*/
 
 #header{
@@ -805,7 +815,7 @@ nav ul li{
     margin-bottom: .5rem;
 }
 
-.pix-account-name{
+.pix-account-name, .pix-account-cnpj, .pix-account-code{
     color: #03256c;
 }
 
