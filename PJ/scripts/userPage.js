@@ -74,7 +74,6 @@ function closeDetailsModal(){
   modalContainer.classList.remove("modal-container-show")
 }
 
-
 // FUNÇÃO QUE FECHA O MODAL DO ESTACIONAMENTO E ABRE O MODAL DE DETALHES DA RESERVA
 
 // botão de abrir o modal de detalhes da reserva
@@ -84,7 +83,6 @@ const bookingButton = document.querySelector('.booking-button')
 const reservationInfoModal = document.querySelector('.reservation-info-modal-closed') 
 
 bookingButton.addEventListener('click', closeParkingLotModal)
-
 
 function closeParkingLotModal(){
   detailsModal.classList.remove('parking-lot-details-modal')
@@ -104,35 +102,90 @@ const paymentModal = document.querySelector('.payment-modal-closed')
 openPaymentButton.addEventListener('click', openPaymentModal)
 
 function openPaymentModal(){
-  reservationInfoModal.remove()
-  paymentModal.classList.remove('payment-modal-closed')
-  paymentModal.classList.add('payment-modal')
-}
+    // Armazenando os valores dos inputs dos dados da reserva
+    const reservationCheckInValue = document.querySelector('#reservation-check-in-time')
+    const reservationCheckOutValue = document.querySelector('#reservation-check-out-time')
+    const reservationFloorValue = document.querySelector('#floor')
+    const reservationVacancyValue = document.querySelector('#vacancy')
 
-// FUNÇÃO QUE TROCA AS OPÇÕES DE PAGAMENTO
+    // Transformando os elementos de texto das informações da reserva em variáveis
+    const CheckInTimeTextValue = document.querySelector('#check-in-time-text-value')
+    const CheckOutTimeTextValue = document.querySelector('#check-out-time-text-value')
+    const floorTextValue = document.querySelector('#floor-text-value')
+    const vacancyTextValue = document.querySelector('#vacancy-text-value')
 
-const cardMethodArea = document.querySelector('.card-method-area')
-const pixMethodArea = document.querySelector('.pix-area-closed')
-const pixPaymentButton =  document.querySelector('.pix-payment-button')
-const cardPaymentButton = document.querySelector('.card-payment-button-active')
+    // Verifica se os campos de detalhes da reserva estão preenchidos  
+    // Caso não esteja preenchido, ele manda um aviso em vermelho dizendo que está faltando informações. Caso esteja preeenchido, um aviso de "informações guardadas" é enviado.
+    if(
+      !reservationCheckInValue.value ||
+      !reservationCheckOutValue.value ||
+      reservationFloorValue.value == 'selecione' ||
+      reservationVacancyValue.value == 'selecione'
+      ){
+        Toastify({
+          text: "Está faltando informações",
+          className: "alert",
+        }).showToast();
 
-pixPaymentButton.addEventListener('click', showPixArea)
-cardPaymentButton.addEventListener('click', showCardArea)
+    } else {
 
-function showPixArea(){
-  cardMethodArea.style.display = 'none'
-  cardPaymentButton.classList.remove('card-payment-button-active')
-  cardPaymentButton.classList.add('card-payment-button')
-  pixPaymentButton.classList.add('pix-payment-button-active')
-  pixMethodArea.classList.remove('pix-area-closed')
-}
+        // Atualiza os valores do textos no modal de revisão da reserva (último modal)
+        CheckInTimeTextValue.innerText += reservationCheckInValue.value
+        CheckOutTimeTextValue.innerText += reservationCheckOutValue.value
+        floorTextValue.innerHTML += reservationFloorValue.value
+        vacancyTextValue.innerHTML += reservationVacancyValue.value
+        Toastify({
+          text: "Informações guardadas",
+          className: "info",
+        }).showToast();
 
-function showCardArea(){
-  cardMethodArea.style.display = 'block'
-  pixMethodArea.classList.add('pix-area-closed')
-  pixPaymentButton.classList.remove('pix-payment-button-active')
-  cardPaymentButton.classList.add('card-payment-button-active')
-  cardPaymentButton.classList.remove('card-payment-button')
+        // Fecha o modal de detalhes da reserva e abre o modal de forma de pagamento
+        reservationInfoModal.remove()
+        paymentModal.classList.remove('payment-modal-closed')
+        paymentModal.classList.add('payment-modal')
+    }
+  }
+
+  // FUNÇÃO QUE TROCA AS OPÇÕES DE PAGAMENTO
+
+  const cardMethodArea = document.querySelector('.card-method-area')
+  const pixMethodArea = document.querySelector('.pix-area-closed')
+  const pixPaymentButton =  document.querySelector('.pix-payment-button')
+  const cardPaymentButton = document.querySelector('.card-payment-button-active')
+
+  pixPaymentButton.addEventListener('click', showPixArea)
+  cardPaymentButton.addEventListener('click', showCardArea)
+
+  function showPixArea(){
+    cardMethodArea.style.display = 'none'
+    cardPaymentButton.classList.remove('card-payment-button-active')
+    cardPaymentButton.classList.add('card-payment-button')
+    pixPaymentButton.classList.add('pix-payment-button-active')
+    pixMethodArea.classList.remove('pix-area-closed')
+  }
+
+  function showCardArea(){
+    cardMethodArea.style.display = 'block'
+    pixMethodArea.classList.add('pix-area-closed')
+    pixPaymentButton.classList.remove('pix-payment-button-active')
+    cardPaymentButton.classList.add('card-payment-button-active')
+    cardPaymentButton.classList.remove('card-payment-button')
+  }
+
+// FUNÇÃO QUE COPIA O CÓDIGO PIX E ENVIA PARA A ÁREA DE TRANSFERÊNCIA
+
+const copyPixCodeButton = document.querySelector('.copy-pix-key-button')
+const pixAccountCodeText = document.querySelector('.pix-account-code')
+
+copyPixCodeButton.addEventListener('click', copyPixCode)
+
+function copyPixCode(){
+  navigator.clipboard.writeText(pixAccountCodeText.innerText).then(() => {
+    Toastify({
+      text: "Copiado para área de transferência",
+      className: "info",
+    }).showToast();
+  })
 }
 
 // FUNÇÃO QUE FECHA O MODAL DE FORMA DE PAGAMENTO E ABRE O DE REVISÃO DA RESERVA
@@ -148,32 +201,6 @@ function openReviewModal(){
   reviewModal.classList.remove('reservation-review-modal-closed')
   reviewModal.classList.add('reservation-review-modal')
 }
-
-/* FUNÇÃO QUE GUARDA E MOSTRA AS INFORMAÇÕES DA RESERVA NO MODAL DE REVISÃO DA RESERVA*/
-
-// Armazenando os valores dos inputs dos dados da reserva
-const reservationCheckInValue = document.querySelector('#reservation-check-in-time')
-const reservationCheckOutValue = document.querySelector('#reservation-check-out-time')
-const reservationFloorValue = document.querySelector('#floor')
-const reservationVacancyValue = document.querySelector('#vacancy')
-
-// Transformando os elementos de texto das informações da reserva em variáveis
-const CheckInTimeTextValue = document.querySelector('#check-in-time-text-value')
-const CheckOutTimeTextValue = document.querySelector('#check-out-time-text-value')
-const floorTextValue = document.querySelector('#floor-text-value')
-const vacancyTextValue = document.querySelector('#vacancy-text-value')
-
-openPaymentButton.addEventListener('click', SwitchReservationInfo)
-
-
-// ESSA PARTE DA FUNÇÃO ESTÁ SENDO ATUALIZADA 04/01/2023
-function SwitchReservationInfo(){
-  CheckInTimeTextValue.innerText += reservationCheckInValue.value
-  CheckOutTimeTextValue.innerText += reservationCheckOutValue.value
-  floorTextValue.innerHTML += reservationFloorValue.value
-  vacancyTextValue.innerHTML += reservationVacancyValue.value
-}
-
 
 /*FUNÇÃO DO BOTÃO DE SCROLL-UP*/
 
