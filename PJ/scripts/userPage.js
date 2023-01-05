@@ -96,17 +96,17 @@ function closeParkingLotModal(){
 // FUNÇÃO QUE FECHA O MODAL DE DETALHES DA RESERVA E ABRE O MODAL DE PAGAMENTO
 
 //botão do modal do estacionamento
-const openPaymentButton = document.querySelector(".open-payment-button")
+const openPaymentButton = document.querySelector('.open-payment-button')
 
 // modal de forma de pagamento
-const paymentModal = document.querySelector(".payment-modal-closed")
+const paymentModal = document.querySelector('.payment-modal-closed')
 
 openPaymentButton.addEventListener('click', openPaymentModal)
 
 function openPaymentModal(){
   reservationInfoModal.remove()
-  paymentModal.classList.remove("payment-modal-closed")
-  paymentModal.classList.add("payment-modal")
+  paymentModal.classList.remove('payment-modal-closed')
+  paymentModal.classList.add('payment-modal')
 }
 
 // FUNÇÃO QUE TROCA AS OPÇÕES DE PAGAMENTO
@@ -148,6 +148,32 @@ function openReviewModal(){
   reviewModal.classList.remove('reservation-review-modal-closed')
   reviewModal.classList.add('reservation-review-modal')
 }
+
+/* FUNÇÃO QUE GUARDA E MOSTRA AS INFORMAÇÕES DA RESERVA NO MODAL DE REVISÃO DA RESERVA*/
+
+// Armazenando os valores dos inputs dos dados da reserva
+const reservationCheckInValue = document.querySelector('#reservation-check-in-time')
+const reservationCheckOutValue = document.querySelector('#reservation-check-out-time')
+const reservationFloorValue = document.querySelector('#floor')
+const reservationVacancyValue = document.querySelector('#vacancy')
+
+// Transformando os elementos de texto das informações da reserva em variáveis
+const CheckInTimeTextValue = document.querySelector('#check-in-time-text-value')
+const CheckOutTimeTextValue = document.querySelector('#check-out-time-text-value')
+const floorTextValue = document.querySelector('#floor-text-value')
+const vacancyTextValue = document.querySelector('#vacancy-text-value')
+
+openPaymentButton.addEventListener('click', SwitchReservationInfo)
+
+
+// ESSA PARTE DA FUNÇÃO ESTÁ SENDO ATUALIZADA 04/01/2023
+function SwitchReservationInfo(){
+  CheckInTimeTextValue.innerText += reservationCheckInValue.value
+  CheckOutTimeTextValue.innerText += reservationCheckOutValue.value
+  floorTextValue.innerHTML += reservationFloorValue.value
+  vacancyTextValue.innerHTML += reservationVacancyValue.value
+}
+
 
 /*FUNÇÃO DO BOTÃO DE SCROLL-UP*/
 
