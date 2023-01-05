@@ -64,7 +64,7 @@
                 </div>
                 <div class="select">
                     <div class="local-card">
-                        <label for="local">Local</label>
+                        <label for="local">Destino</label>
                         <input type="text" name="" id="local">
                     </div>
                     <div class="vehicle-card">
@@ -221,6 +221,7 @@
                 Ver mais <i class="uil uil-angle-right button-icon"></i>
               </a>
             </div>
+            
             <!-- Modal que aparece ao apertar o botão "ver mais" na seção de estacionamentos por perto -->
             <div class="modal-container">
               <div class="parking-lot-details-modal">       
@@ -265,7 +266,7 @@
                   <div class="parking-lot-vacancy-area">
                     <div class="parking-lot-floor-area">
                       <label for="floor" class="parking-lot-floor-text">Seu andar da vaga</label>
-                      <select name="veiculos" class="reservations-floor-options"id="floor">
+                      <select name="veiculos" class="reservations-floor-options" id="floor">
                         <option value="selecione">Andar da vaga</option>
                         <option value="A">A - Primeiro andar</option>
                         <option value="B">B - Segundo andar</option>
@@ -277,7 +278,7 @@
                     </div>
                     <div class="parking-lot-reserved-vacancy-area">
                       <label for="free-vacancies" class="parking-lot-vacancy-text">Vagas disponíveis</label>
-                      <select name="veiculos" class="reservations-floor-options"id="floor">
+                      <select name="veiculos" class="reservations-floor-options" id="vacancy">
                         <option value="selecione">Sua vaga</option>
                         <option value="A">04 - Setor Sul</option>
                         <option value="B">09 - Setor Sul</option>
@@ -359,7 +360,7 @@
                     <h4 class="review-modal-title">Revisão</h4>
                     <a href="#!" class="parking-lot-details-close-button button-icon"><i class="uil uil-multiply close-icon"></i> Fechar</a>
                   </div>
-                    <p class="review-modal-text">Confire se a informações da vaga e a forma de pagamento estão de acordo.</p>
+                    <p class="review-modal-text">Confira se a informações da vaga e a forma de pagamento estão de acordo.</p>
                     <div class="reservation-review-area">
                       <div class="review-payment-method-area">
                         <div class="review-payment-method-header">
@@ -376,19 +377,19 @@
                     <div class="review-reservation-info-area">
                         <div class="review-check-in-area">
                           <p class="review-check-in-text">Check-in</p>
-                          <span>14:30</span>
+                          <span id="check-in-time-text-value"></span>
                         </div>
                         <div class="review-check-out-area">
                           <p class="review-check-out-text">Check-out</p>
-                          <span>15:30</span>
+                          <span id="check-out-time-text-value"></span>
                         </div> 
                       <div class="review-floor-area">
                         <p class="review-floor-text">Andar</p>
-                        <span>B - Segundo andar</span>
+                        <span id="floor-text-value"></span>
                       </div>
                       <div class="review-vacancy-area">
                         <p class="review-vacancy-text">Vaga</p>
-                        <span>09 - Setor Sul</span>
+                        <span id="vacancy-text-value"></span>
                       </div>
                       <div class="review-price-area">
                         <p class="review-price-text">Valor</p>
