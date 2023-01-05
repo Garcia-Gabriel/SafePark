@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
   </head>
   <body>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -268,24 +269,24 @@
                       <label for="floor" class="parking-lot-floor-text">Seu andar da vaga</label>
                       <select name="veiculos" class="reservations-floor-options" id="floor">
                         <option value="selecione">Andar da vaga</option>
-                        <option value="A">A - Primeiro andar</option>
-                        <option value="B">B - Segundo andar</option>
-                        <option value="C">C - Terceiro andar</option>
-                        <option value="D">D - Quarto andar</option>
-                        <option value="E">E - Quinto andar</option>
-                        <option value="F">F - Sexto andar</option>
+                        <option value="A - Primeiro andar">A - Primeiro andar</option>
+                        <option value="B - Segundo andar">B - Segundo andar</option>
+                        <option value="C - Terceiro andar">C - Terceiro andar</option>
+                        <option value="D - Quarto andar">D - Quarto andar</option>
+                        <option value="E - Quinto andar">E - Quinto andar</option>
+                        <option value="F - Sexto andar">F - Sexto andar</option>
                       </select>
                     </div>
                     <div class="parking-lot-reserved-vacancy-area">
                       <label for="free-vacancies" class="parking-lot-vacancy-text">Vagas disponíveis</label>
                       <select name="veiculos" class="reservations-floor-options" id="vacancy">
                         <option value="selecione">Sua vaga</option>
-                        <option value="A">04 - Setor Sul</option>
-                        <option value="B">09 - Setor Sul</option>
-                        <option value="C">14 - Setor Oeste</option>
-                        <option value="D">21 - Setor Norte</option>
-                        <option value="E">26 - Setor Norte</option>
-                        <option value="F">27 - Setor Leste</option>
+                        <option value="04 - Setor Sul">04 - Setor Sul</option>
+                        <option value="09 - Setor Sul">09 - Setor Sul</option>
+                        <option value="14 - Setor Oeste">14 - Setor Oeste</option>
+                        <option value="21 - Setor Norte">21 - Setor Norte</option>
+                        <option value="26 - Setor Norte">26 - Setor Norte</option>
+                        <option value="27 - Setor Leste">27 - Setor Leste</option>
                       </select>
                     </div>
                   </div>
@@ -344,9 +345,9 @@
                       <P class="pix-account-text">Nome da instituição</P>
                       <P class="pix-account-name">SafePark LTDA.</P>
                       <P class="pix-account-text">CNPJ da instituição</P>
-                      <P class="pix-account-name">XX. XXX. XXX/0001-XX</P>
+                      <P class="pix-account-cnpj">XX. XXX. XXX/0001-XX</P>
                       <P class="pix-account-text">Chave Pix</P>
-                      <span class="pix-account-name">3hd2-d29n-dn2-nids-n2ni-nd2i</span> 
+                      <span class="pix-account-code">3hd2-d29n-dn2-nids-n2ni-nd2i</span> 
                       <a href="#!" class="copy-pix-key-button"><i class="uil uil-copy copy-icon"></i>Copiar</a> 
                     </div>
                   </div>
@@ -566,6 +567,7 @@
       <div class="vw-plugin-top-wrapper"></div>
     </div>
   </div>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
   <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
   <script>
     new window.VLibras.Widget('https://vlibras.gov.br/app');
