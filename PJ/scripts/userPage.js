@@ -44,9 +44,12 @@ for (let showModalButtons of document.querySelectorAll('.show-modal-button')){
 // Função que abre o modal
   function openDetailsModal(){
     // Quando a função for executada, ele vai adicionar a classe "modal-container-show" no elemento de classe modalContainer, assim, recebendo as propriedades CSS da classe "modal-container-show" que é a que torna o container visível
-    modalContainer.classList.add("modal-container-show")
+
+    modalContainer.classList.add('modal-container-show')
     detailsModal.classList.add('parking-lot-details-modal')
     detailsModal.classList.remove('parking-lot-details-modal-closed')
+    // o body recebe o overflow: hidden porque quando o modal for aberto, a página não poderá ser "scrollada", somente o próprio modal
+    document.body.style.overflow += 'hidden'
   }
 }
 
@@ -65,7 +68,8 @@ modalContainer.addEventListener('click', (event) => {
     detailsModal.classList.add('parking-lot-details-modal-closed')
     paymentModal.classList.add('payment-modal-closed')
     reviewModal.classList.add('reservation-review-modal-closed')
-    
+    // Remove o overflow: hidden do body para que a página possa ser "scrollada" novamente ao fechar o modal
+    document.body.style.removeProperty('overflow')
     closeDetailsModal();
 })
 
