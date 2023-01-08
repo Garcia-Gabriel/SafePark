@@ -54,18 +54,18 @@ p{
     color: var(--texto-padrao);
 }
 
-  ul{
+ul{
     list-style: none;
-  }
+}
 
-  a{
+a{
     text-decoration: none;
-  }
+}
 
-  button{
+button{
     border: none;
     outline: none;
-  }
+}
 
 /* REUTILIZAÇÕES CSS */
 
@@ -540,6 +540,12 @@ nav ul li{
     transition: .3s;
 }
 
+/* Há um div. no elemento porque para poder estilizar a scrollbar de um elemento específico, é necessário colocar o tipo de elemento html e sua classe ou id */
+div.parking-lot-details-modal::-webkit-scrollbar-thumb{
+    background-color: #F7F5F9;
+    border-radius: 5rem;
+}
+
 .parking-lot-details-header{
     display: flex;
     justify-content: space-between;
@@ -769,6 +775,17 @@ nav ul li{
     justify-content: space-around;
     border-bottom: 1px solid var(--cor-padrao);
     padding-top: 1rem;
+}
+
+.choosed-saved-card{
+    background-color: var(--cor-padrao);
+    color: #FFFF;
+    border-radius: .5rem;
+}
+
+.card-option{
+    height: 1rem;
+    width: 1rem;
 }
 
 .card-flag{
